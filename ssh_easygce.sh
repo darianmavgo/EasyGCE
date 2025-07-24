@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -i ~/.ssh/easygce_key -o StrictHostKeyChecking=no darianhickman@$(gcloud compute instances describe $(gcloud compute instances list --filter="name~easygce" --format="value(name)" | head -1) --zone=us-east1-c --format="get(networkInterfaces[0].accessConfigs[0].natIP)" --project=mavgollc)

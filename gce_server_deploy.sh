@@ -7,7 +7,7 @@
 ## set defaults
 
 # project
-GCE_PROJECT_NAME=
+GCE_PROJECT_NAME=mavgollc
 # vm
 GCE_MACHINE_TYPE=n1-standard-2
 GCE_VM_NAME=
