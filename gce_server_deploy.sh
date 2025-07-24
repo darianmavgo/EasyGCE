@@ -93,6 +93,17 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \$(lsb_release -cs) stable"
 apt-get update
 apt-get --assume-yes install -y docker-ce
+# install desktop environment
+apt-get --assume-yes install xfce4 xfce4-goodies
+# install remote desktop servers
+apt-get --assume-yes install xrdp tightvncserver
+# configure xrdp
+systemctl enable xrdp
+systemctl start xrdp
+# add ubuntu user
+adduser --disabled-password --gecos "" ubuntu
+echo "ubuntu:ubuntu123" | chpasswd
+usermod -aG sudo ubuntu
 # clone easygce repo
 mkdir -p /opt/easygce
 git clone https://github.com/darianhickman/easygce /opt/easygce
